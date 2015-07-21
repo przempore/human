@@ -13,11 +13,11 @@ MainWindow::MainWindow()
     else
     {
         window = SDL_CreateWindow(
-                m_windowTitle,
+                windowTitle,
                 SDL_WINDOWPOS_CENTERED,
                 SDL_WINDOWPOS_CENTERED,
-                m_windowWidth,
-                m_windowHeight,
+                windowWidth,
+                windowHeight,
                 SDL_WINDOW_SHOWN );
         if ( !window )
         {
@@ -30,14 +30,14 @@ MainWindow::MainWindow()
         SDL_Rect rect;
         rect.x = 0;
         rect.y = 0;
-        rect.w = m_windowWidth;
-        rect.h = m_windowHeight;
+        rect.w = windowWidth;
+        rect.h = windowHeight;
         grass.reset( new Sprite( "image/grass.jpg", renderer, rect ));
-        rect.x = 50;
-        rect.y = 50;
-        rect.w = 50;
-        rect.h = 50;
-        bob.reset( new Actor( "image/bob.png", renderer, rect ));
+        rect.x = 0;
+        rect.y = 0;
+        rect.w = 256;//353;
+        rect.h = 280;//481;
+        bob.reset( new Actor( "image/tom.png", renderer, rect ));
     }
 }
 
@@ -50,13 +50,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::Loop()
 {
-    while ( m_running && ( event->type != SDL_QUIT ))
+    while ( running && ( event->type != SDL_QUIT ))
     {
         SDL_PollEvent( event );
         SDL_RenderClear( renderer );
 
         grass->RenderCopy();
         bob->RenderCopy();
+
+        bob->PlayAnimation(0, 3, 0, 250);
+
         SDL_RenderPresent( renderer );
     }
 }

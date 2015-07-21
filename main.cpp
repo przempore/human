@@ -7,7 +7,7 @@ http://www.squarebitstudios.tk
 
 int main( int argc, char *args[] )
 {
-    std::shared_ptr<MainWindow> window( new MainWindow());
+    std::unique_ptr<MainWindow> window( new MainWindow());
     window->Loop();
 
     return 0;

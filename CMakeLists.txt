@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 2.8)
 project(sdlTest)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
@@ -9,8 +9,7 @@ add_executable(sdlTest ${SOURCE_FILES} MainWindow.cpp
                                        Sprite.cpp
                                        Sprite.h Actor.cpp Actor.h)
 
-configure_file(image/sdl.bmp
-                ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+#configure_file(${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
 INCLUDE(FindPkgConfig)
 
