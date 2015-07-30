@@ -30,5 +30,7 @@ SDL_Setup::SDL_Setup()
 
 SDL_Setup::~SDL_Setup()
 {
-
+    SDL_DestroyWindow( window );
+    SDL_DestroyRenderer( renderer );
+    SDL_Quit();
 }

@@ -14,9 +14,6 @@ MainWindow::MainWindow()
 
 MainWindow::~MainWindow()
 {
-    SDL_DestroyWindow( window );
-    SDL_DestroyRenderer( renderer );
-    SDL_Quit();
 }
 
 void MainWindow::Loop()
