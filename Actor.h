@@ -12,20 +12,23 @@ class Actor : public Sprite
 public:
     Actor( const char *source,
            SDL_Renderer *renderer,
-           SDL_Rect &rect );
+           int x, int y, int w, int h );
 
     virtual ~Actor();
 
 public:
-    void Move(int x, int y);
+    void Move( int x, int y );
 
-    void RenderCopy();
+    void RenderCopy() override;
 
     void PlayAnimation( int beginFrame, int endFrame, int row, float deelay );
+
 private:
     int currentFrame = 0;
     int animDelay = 0;
     SDL_Rect crop;
+    int imageWidth;
+    int imageHeigh;
 };
 
 

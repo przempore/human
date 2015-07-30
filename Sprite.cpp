@@ -4,6 +4,25 @@
 
 #include "Sprite.h"
 
+Sprite::Sprite( const char *source, SDL_Renderer *renderer, int x, int y, int w, int h ) : renderer( renderer )
+{
+    texture = IMG_LoadTexture( renderer, source );
+    if ( !texture )
+    {
+        std::cout << "cannot load texture " << source << "!\n";
+    }
+
+    rect.x = x;
+    rect.y = y;
+    rect.w = w;
+    rect.h = h;
+}
+
+Sprite::~Sprite()
+{
+    SDL_DestroyTexture( texture );
+}
+
 void Sprite::RenderCopy()
 {
     SDL_RenderCopy( renderer, texture, NULL, &rect );

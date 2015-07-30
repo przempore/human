@@ -27,17 +27,8 @@ MainWindow::MainWindow()
 
         renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );
         event = new SDL_Event();
-        SDL_Rect rect;
-        rect.x = 0;
-        rect.y = 0;
-        rect.w = windowWidth;
-        rect.h = windowHeight;
-        grass.reset( new Sprite( "image/grass.jpg", renderer, rect ));
-        rect.x = 0;
-        rect.y = 0;
-        rect.w = 256;//353;
-        rect.h = 280;//481;
-        bob.reset( new Actor( "image/tom.png", renderer, rect ));
+        grass.reset( new Sprite( "image/grass.jpg", renderer, 0, 0, windowWidth, windowHeight ));
+        bob.reset( new Actor( "image/tom.png", renderer, 0, 0, 100, 120 ));//353, 481 ));
     }
 }
 
@@ -58,7 +49,7 @@ void MainWindow::Loop()
         grass->RenderCopy();
         bob->RenderCopy();
 
-        bob->PlayAnimation(0, 3, 0, 250);
+        bob->PlayAnimation(0, 3, 0, 200);
 
         SDL_RenderPresent( renderer );
     }

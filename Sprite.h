@@ -13,23 +13,12 @@
 class Sprite
 {
 public:
-    Sprite( const char *source, SDL_Renderer *renderer, SDL_Rect rect ) : renderer( renderer ),
-                                                                          rect( rect )
-    {
-        texture = IMG_LoadTexture( renderer, source );
-        if ( !texture )
-        {
-            std::cout << "cannot load texture!\n";
-        }
-    }
+    Sprite( const char *source, SDL_Renderer *renderer, int x, int y, int w, int h );
 
-    virtual ~Sprite()
-    {
-        SDL_DestroyTexture( texture );
-    }
+    virtual ~Sprite();
 
 public:
-    void RenderCopy();
+    virtual void RenderCopy();
 
     const SDL_Rect &GetRect() const;
 

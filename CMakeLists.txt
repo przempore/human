@@ -7,7 +7,9 @@ set(SOURCE_FILES main.cpp)
 add_executable(sdlTest ${SOURCE_FILES} MainWindow.cpp
                                        MainWindow.h
                                        Sprite.cpp
-                                       Sprite.h Actor.cpp Actor.h)
+                                       Sprite.h
+                                       Actor.cpp
+                                       Actor.h)
 
 #configure_file(${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 

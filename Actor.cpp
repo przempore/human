@@ -6,15 +6,15 @@
 
 Actor::Actor( const char *source,
               SDL_Renderer *renderer,
-              SDL_Rect &rect ) : Sprite( source,
-                                         renderer,
-                                         rect )
+              int x, int y, int w, int h ) : Sprite( source,
+                                                     renderer,
+                                                     x, y, w, h )
 {
-    SDL_QueryTexture( texture, NULL, NULL, &rect.w, &rect.h );
-    Actor::crop.x = rect.x;
-    Actor::crop.y = rect.y;
-    Actor::crop.w = rect.w;
-    Actor::crop.h = rect.h;
+    SDL_QueryTexture( texture, NULL, NULL, &imageWidth, &imageHeigh );
+    Actor::crop.x = 0;
+    Actor::crop.y = 0;
+    Actor::crop.w = w / 4;
+    Actor::crop.h = h / 4;
 }
 
 Actor::~Actor()
@@ -47,10 +47,10 @@ void Actor::PlayAnimation( int beginFrame, int endFrame, int row, float deelay )
         ++currentFrame;
     }
 
-//    crop.x = currentFrame * ( rect.w / 4 );
-//    crop.y = row * ( rect.h / 4 );
-    crop.w = rect.w / 4;
-    crop.h = rect.h / 4 + 40;
+    crop.x = currentFrame * ( imageWidth / 4 );
+    crop.y = row * ( imageHeigh / 4 );
+    crop.w = imageWidth / 4;
+    crop.h = imageHeigh / 4;
 
     animDelay = SDL_GetTicks();
 }
