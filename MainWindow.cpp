@@ -6,30 +6,10 @@
 
 MainWindow::MainWindow()
 {
-    if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-    {
-        printf( "SDL2 could not initialize! SDL2_Error: %s\n", SDL_GetError());
-    }
-    else
-    {
-        window = SDL_CreateWindow(
-                windowTitle,
-                SDL_WINDOWPOS_CENTERED,
-                SDL_WINDOWPOS_CENTERED,
-                windowWidth,
-                windowHeight,
-                SDL_WINDOW_SHOWN );
-        if ( !window )
-        {
-            printf( "Cannot create window\n" );
-            return;
-        }
+    sdlSetup.reset( new SDL_Setup());
 
-        renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );
-        event = new SDL_Event();
-        grass.reset( new Sprite( "image/grass.jpg", renderer, 0, 0, windowWidth, windowHeight ));
-        bob.reset( new Actor( "image/tom.png", renderer, 0, 0, 100, 120 ));//353, 481 ));
-    }
+    grass.reset( new Sprite( "image/grass.jpg", renderer, 0, 0, windowWidth, windowHeight ));
+    bob.reset( new Actor( "image/tom.png", renderer, 0, 0, 100, 120 ));//353, 481 ));
 }
 
 MainWindow::~MainWindow()
@@ -49,7 +29,7 @@ void MainWindow::Loop()
         grass->RenderCopy();
         bob->RenderCopy();
 
-        bob->PlayAnimation(0, 3, 0, 200);
+        bob->PlayAnimation( 0, 3, 0, 200 );
 
         SDL_RenderPresent( renderer );
     }
