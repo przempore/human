@@ -9,12 +9,6 @@ SDL_Setup::SDL_Setup()
     }
     else
     {
-        if ( !window )
-        {
-            printf( "Cannot create window\n" );
-            return;
-        }
-
         window = SDL_CreateWindow(
                 windowTitle,
                 SDL_WINDOWPOS_CENTERED,
@@ -22,6 +16,12 @@ SDL_Setup::SDL_Setup()
                 windowWidth,
                 windowHeight,
                 SDL_WINDOW_SHOWN );
+        
+        if ( !window )
+        {
+            printf( "Cannot create window\n" );
+            return;
+        }
 
         renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );
         event = new SDL_Event();

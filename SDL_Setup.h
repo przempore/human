@@ -17,7 +17,6 @@ private:
     SDL_Window *window = nullptr; // the window
     SDL_Event *event = new SDL_Event(); // The event structure
     SDL_Renderer *renderer = nullptr;
-
 };
 
 

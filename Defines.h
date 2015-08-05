@@ -5,8 +5,8 @@
 #ifndef SDLTEST_DEFINES_H
 #define SDLTEST_DEFINES_H
 
-const int windowWidth = 800;
-const int windowHeight = 600;
-const char *windowTitle = "Human game";
+static const int windowWidth = 800;
+static const int windowHeight = 600;
+static const char *windowTitle = "Human game";
 
 #endif //SDLTEST_DEFINES_H
