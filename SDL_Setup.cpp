@@ -16,7 +16,7 @@ SDL_Setup::SDL_Setup()
                 windowWidth,
                 windowHeight,
                 SDL_WINDOW_SHOWN );
-        
+
         if ( !window )
         {
             printf( "Cannot create window\n" );

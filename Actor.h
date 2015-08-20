@@ -19,6 +19,8 @@ public:
 public:
     void Move( int x, int y );
 
+    void Move( SDL_Event* event );
+
     void RenderCopy() override;
 
     void PlayAnimation( int beginFrame, int endFrame, int row, float deelay );
@@ -29,6 +31,7 @@ private:
     SDL_Rect crop;
     int imageWidth;
     int imageHeigh;
+    const int speed = 5;
 };
 
 

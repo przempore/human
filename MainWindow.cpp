@@ -20,15 +20,24 @@ void MainWindow::Loop()
 {
     while ( running && ( sdlSetup->GetEvent()->type != SDL_QUIT ))
     {
+        running = !checkIsEscape(sdlSetup->GetEvent());
+
         SDL_PollEvent( sdlSetup->GetEvent());
         SDL_RenderClear( sdlSetup->GetRendere());
 
         grass->RenderCopy();
         bob->RenderCopy();
 
-        bob->PlayAnimation( 0, 3, 0, 200 );
+        bob->Move( sdlSetup->GetEvent());
+
+        bob->PlayAnimation( 0, 3, 2, 100 );
 
         SDL_RenderPresent( sdlSetup->GetRendere());
     }
 }
 
+bool MainWindow::checkIsEscape( SDL_Event *event )
+{
+    return event->type == SDL_KEYDOWN
+     && event->key.keysym.sym == SDLK_ESCAPE;
+}

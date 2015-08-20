@@ -26,6 +26,36 @@ void Actor::Move( int x, int y )
     Actor::rect.y = y;
 }
 
+void Actor::Move( SDL_Event* event )
+{
+    switch ( event->type )
+    {
+        case SDL_KEYDOWN:
+
+            switch ( event->key.keysym.sym )
+            {
+                case SDLK_a:
+                    this->rect.x -= speed;
+                    break;
+                case SDLK_s:
+                    this->rect.y += speed;
+                    break;
+                case SDLK_w:
+                    this->rect.y -= speed;
+                    break;
+                case SDLK_d:
+                    this->rect.x += speed;
+                    break;
+                default:
+                    break;
+            }
+
+            break;
+        default:
+            break;
+    }
+}
+
 void Actor::RenderCopy()
 {
     SDL_RenderCopy( renderer, texture, &crop, &rect );

@@ -19,6 +19,9 @@ public:
     void Loop();
 
 private:
+    bool checkIsEscape( SDL_Event *event );
+
+private:
     std::shared_ptr<SDL_Setup> sdlSetup;
     _Bool running = true; // The game loop flag
     std::shared_ptr<Sprite> grass;
