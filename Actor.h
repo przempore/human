@@ -31,7 +31,7 @@ private:
     SDL_Rect crop;
     int imageWidth;
     int imageHeigh;
-    const int speed = 5;
+    const int speed = 15;
 };
 
 

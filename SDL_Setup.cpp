@@ -6,24 +6,36 @@ SDL_Setup::SDL_Setup()
     if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
         printf( "SDL2 could not initialize! SDL2_Error: %s\n", SDL_GetError());
+        return;
     }
     else
     {
-        window = SDL_CreateWindow(
+        if (( window = SDL_CreateWindow(
                 windowTitle,
                 SDL_WINDOWPOS_CENTERED,
                 SDL_WINDOWPOS_CENTERED,
                 windowWidth,
                 windowHeight,
-                SDL_WINDOW_SHOWN );
-
-        if ( !window )
+                SDL_WINDOW_SHOWN )) == nullptr )
         {
             printf( "Cannot create window\n" );
             return;
         }
 
-        renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED );
+//        int flags = IMG_INIT_PNG;
+//
+//        if ( !( IMG_Init( flags ) & flags ))
+//        {
+//            return false;
+//        }
+
+        if (( renderer = SDL_CreateRenderer( window,
+                                             -1,
+                                             SDL_RENDERER_ACCELERATED )) == nullptr )
+        {
+            return;
+        }
+
         event = new SDL_Event();
     }
 }
@@ -31,6 +43,10 @@ SDL_Setup::SDL_Setup()
 SDL_Setup::~SDL_Setup()
 {
     SDL_DestroyWindow( window );
+    window = nullptr;
+
     SDL_DestroyRenderer( renderer );
+    renderer = nullptr;
+
     SDL_Quit();
 }

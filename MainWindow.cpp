@@ -30,7 +30,7 @@ void MainWindow::Loop()
 
         bob->Move( sdlSetup->GetEvent());
 
-        bob->PlayAnimation( 0, 3, 2, 100 );
+        bob->PlayAnimation( 0, 3, 2, 300 );
 
         SDL_RenderPresent( sdlSetup->GetRendere());
     }
