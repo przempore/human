@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "SDL_Setup.h"
 #include "Defines.h"
 

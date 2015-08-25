@@ -1,7 +1,11 @@
 #ifndef SDLTEST_SDL_SETUP_H
 #define SDLTEST_SDL_SETUP_H
 
+#ifdef _WIN32
+#include <SDL.h>
+#else
 #include <SDL2/SDL.h>
+#endif
 
 class SDL_Setup
 {
