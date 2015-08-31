@@ -8,24 +8,29 @@
 #include "Sprite.h"
 #include "Actor.h"
 
-class MainWindow
+namespace Game
 {
-public:
-    MainWindow();
+    namespace Core
+    {
+        class MainWindow
+        {
+        public:
+            MainWindow();
 
-    virtual ~MainWindow();
+            virtual ~MainWindow();
 
-public:
-    void Loop();
+        public:
+            void Loop();
 
-private:
-    bool checkIsEscape( SDL_Event *event );
+        private:
+            bool checkIsEscape( SDL_Event *event );
 
-private:
-    std::shared_ptr<SDL_Setup> sdlSetup;
-    _Bool running = true; // The game loop flag
-    std::shared_ptr<Sprite> grass;
-    std::shared_ptr<Actor> bob;
-};
-
+        private:
+            std::shared_ptr<Components::Core::SDL_Setup> sdlSetup;
+            _Bool running = true; // The game loop flag
+            std::shared_ptr<Components::Graphics::Sprite> grass;
+            std::shared_ptr<Actor> bob;
+        };
+    }
+}
 #endif //SDLTEST_MAINWINDOW_H

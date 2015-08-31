@@ -12,7 +12,10 @@ add_executable(sdlTest ${SOURCE_FILES} MainWindow.cpp
                                        Actor.h
                                        SDL_Setup.cpp
                                        SDL_Setup.h
-                                       Defines.h)
+                                       Defines.h
+                                       Application.cpp
+                                       Application.h
+                                       InputType.h)
 
 #configure_file(${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 

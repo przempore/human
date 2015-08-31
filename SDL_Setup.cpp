@@ -1,26 +1,30 @@
 #include "SDL_Setup.h"
 #include "Defines.h"
 
-SDL_Setup::SDL_Setup()
+namespace Components
 {
-    if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+    namespace Core
     {
-        printf( "SDL2 could not initialize! SDL2_Error: %s\n", SDL_GetError());
-        return;
-    }
-    else
-    {
-        if (( window = SDL_CreateWindow(
-                windowTitle,
-                SDL_WINDOWPOS_CENTERED,
-                SDL_WINDOWPOS_CENTERED,
-                windowWidth,
-                windowHeight,
-                SDL_WINDOW_SHOWN )) == nullptr )
+        SDL_Setup::SDL_Setup()
         {
-            printf( "Cannot create window\n" );
-            return;
-        }
+            if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+            {
+                printf( "SDL2 could not initialize! SDL2_Error: %s\n", SDL_GetError());
+                return;
+            }
+            else
+            {
+                if (( window = SDL_CreateWindow(
+                        windowTitle,
+                        SDL_WINDOWPOS_CENTERED,
+                        SDL_WINDOWPOS_CENTERED,
+                        windowWidth,
+                        windowHeight,
+                        SDL_WINDOW_SHOWN )) == nullptr )
+                {
+                    printf( "Cannot create window\n" );
+                    return;
+                }
 
 //        int flags = IMG_INIT_PNG;
 //
@@ -29,24 +33,26 @@ SDL_Setup::SDL_Setup()
 //            return false;
 //        }
 
-        if (( renderer = SDL_CreateRenderer( window,
-                                             -1,
-                                             SDL_RENDERER_ACCELERATED )) == nullptr )
-        {
-            return;
+                if (( renderer = SDL_CreateRenderer( window,
+                                                     -1,
+                                                     SDL_RENDERER_ACCELERATED )) == nullptr )
+                {
+                    return;
+                }
+
+                event = new SDL_Event();
+            }
         }
 
-        event = new SDL_Event();
+        SDL_Setup::~SDL_Setup()
+        {
+            SDL_DestroyWindow( window );
+            window = nullptr;
+
+            SDL_DestroyRenderer( renderer );
+            renderer = nullptr;
+
+            SDL_Quit();
+        }
     }
-}
-
-SDL_Setup::~SDL_Setup()
-{
-    SDL_DestroyWindow( window );
-    window = nullptr;
-
-    SDL_DestroyRenderer( renderer );
-    renderer = nullptr;
-
-    SDL_Quit();
 }
