@@ -3,12 +3,14 @@ main.c - Testing SDL2
 http://www.squarebitstudios.tk
 */
 #include <memory>
-#include "MainWindow.h"
+#include "MainGame.h"
 
 int main( int argc, char *args[] )
 {
-    std::unique_ptr<Game::Core::MainWindow> window( new Game::Core::MainWindow());
-    window->Loop();
+    std::unique_ptr<Game::Core::MainGame> game( new Game::Core::MainGame());
+    game->OnStartUp();
+    game->Loop();
+    game->OnShutdown();
 
-    return 0;
+    return EXIT_SUCCESS;
 }

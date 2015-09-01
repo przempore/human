@@ -21,14 +21,14 @@ namespace Game
             virtual ~Application();
 
         public:
-            virtual void OnStartup()  = 0;
+            virtual void OnStartup() = 0;
             virtual void OnShutdown() = 0;
             virtual void OnUpdate( float dt ) = 0;
-            virtual void OnDraw( SDL_Renderer* renderer ) = 0;
+            virtual void OnDraw( SDL_Renderer *renderer ) = 0;
             virtual void OnEvent( SDL_Event type,
-                                  void* event ) = 0;
+                                  void *event ) = 0;
             virtual void OnInput( InputType type,
-                                  void* input ) = 0;
+                                  void *input ) = 0;
 
         public:
             void Quit();

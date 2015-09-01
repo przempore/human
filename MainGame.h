@@ -7,25 +7,29 @@
 #include "SDL_Setup.h"
 #include "Sprite.h"
 #include "Actor.h"
+#include "Game.h"
 
 namespace Game
 {
     namespace Core
     {
-        class MainWindow
+        class MainGame
         {
         public:
-            MainWindow();
-
-            virtual ~MainWindow();
+            MainGame();
+            virtual ~MainGame();
 
         public:
+            bool OnStartUp();
             void Loop();
+            void OnShutdown();
 
         private:
-            bool checkIsEscape( SDL_Event *event );
+            bool CheckIsEscape( SDL_Event *event );
+            void CheckSDLEvent( SDL_Event *event );
 
         private:
+            ApplicationPtr application;
             std::shared_ptr<Components::Core::SDL_Setup> sdlSetup;
             _Bool running = true; // The game loop flag
             std::shared_ptr<Components::Graphics::Sprite> grass;

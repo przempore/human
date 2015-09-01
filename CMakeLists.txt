@@ -4,8 +4,8 @@ project(sdlTest)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES main.cpp)
-add_executable(sdlTest ${SOURCE_FILES} MainWindow.cpp
-                                       MainWindow.h
+add_executable(sdlTest ${SOURCE_FILES} MainGame.cpp
+                                       MainGame.h
                                        Sprite.cpp
                                        Sprite.h
                                        Actor.cpp
@@ -15,7 +15,7 @@ add_executable(sdlTest ${SOURCE_FILES} MainWindow.cpp
                                        Defines.h
                                        Application.cpp
                                        Application.h
-                                       InputType.h)
+                                       InputType.h Game.cpp Game.h Input.h)
 
 #configure_file(${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
