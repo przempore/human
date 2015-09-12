@@ -2,7 +2,7 @@
 // Created by przemo on 31.08.15.
 //
 
-#include "Application.h"
+#include "Application.hpp"
 
 namespace Game
 {

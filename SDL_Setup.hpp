@@ -2,6 +2,7 @@
 #define SDLTEST_SDL_SETUP_H
 
 #include <SDL2/SDL.h>
+#include "Singleton.hpp"
 
 namespace Components
 {
@@ -11,7 +12,6 @@ namespace Components
         {
         public:
             SDL_Setup();
-
             virtual ~SDL_Setup();
 
         public:

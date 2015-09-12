@@ -7,7 +7,9 @@
 
 
 #include <memory>
-#include "Application.h"
+#include "Application.hpp"
+#include "Sprite.hpp"
+#include "Actor.hpp"
 
 namespace Game
 {
@@ -15,6 +17,10 @@ namespace Game
     {
         class Game : public Application
         {
+        public:
+            Game();
+            virtual ~Game();
+        private:
             virtual void OnStartup() override;
             virtual void OnShutdown() override;
             virtual void OnUpdate( float dt ) override;
@@ -23,8 +29,13 @@ namespace Game
                                   void *event ) override;
             virtual void OnInput( InputType type,
                                   void *input ) override;
+
+        private:
+            std::shared_ptr<Components::Graphics::Sprite> grass;
+            std::shared_ptr<Actor> bob;
         };
-        typedef std::unique_ptr< Application > ApplicationPtr;
+
+        typedef std::unique_ptr<Application> ApplicationPtr;
     }
 }
 

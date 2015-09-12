@@ -1,5 +1,5 @@
-#include "SDL_Setup.h"
-#include "Defines.h"
+#include "SDL_Setup.hpp"
+#include "Defines.hpp"
 
 namespace Components
 {
@@ -25,13 +25,6 @@ namespace Components
                     printf( "Cannot create window\n" );
                     return;
                 }
-
-//        int flags = IMG_INIT_PNG;
-//
-//        if ( !( IMG_Init( flags ) & flags ))
-//        {
-//            return false;
-//        }
 
                 if (( renderer = SDL_CreateRenderer( window,
                                                      -1,

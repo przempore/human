@@ -3,12 +3,27 @@
 //
 
 #include <iostream>
-#include "Game.h"
+#include "Game.hpp"
+#include "Defines.hpp"
 
 namespace Game
 {
     namespace Core
     {
+        Game::Game()
+        {
+            grass.reset( new Components::Graphics::Sprite( "image/grass.jpg", sdlSetup->GetRendere(), 0, 0,
+                                                           windowWidth,
+                                                           windowHeight ));
+            bob.reset( new Actor( "image/tom.png", sdlSetup->GetRendere(), 0, 0, 100, 120 ));
+
+        }
+
+        Game::~Game()
+        {
+            
+        }
+
         void Game::OnStartup()
         {
         }
@@ -36,7 +51,7 @@ namespace Game
 
         ApplicationPtr CreateApplication()
         {
-            return ApplicationPtr( new Game );
+            return ApplicationPtr( new Game() );
         }
     }
 }

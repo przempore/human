@@ -5,17 +5,23 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES main.cpp)
 add_executable(sdlTest ${SOURCE_FILES} MainGame.cpp
-                                       MainGame.h
+                                       MainGame.hpp
                                        Sprite.cpp
-                                       Sprite.h
+                                       Sprite.hpp
                                        Actor.cpp
-                                       Actor.h
+                                       Actor.hpp
                                        SDL_Setup.cpp
-                                       SDL_Setup.h
-                                       Defines.h
+                                       SDL_Setup.hpp
+                                       Defines.hpp
                                        Application.cpp
-                                       Application.h
-                                       InputType.h Game.cpp Game.h Input.h)
+                                       Application.hpp
+                                       InputType.hpp
+                                       Game.cpp
+                                       Game.hpp
+                                       Input.hpp
+                                       Singleton.hpp
+                                       Singleton.inl
+                                       NonCopyable.hpp)
 
 #configure_file(${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
