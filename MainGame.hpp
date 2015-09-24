@@ -4,10 +4,10 @@
 #include <stdbool.h>
 #include <string>
 #include <memory>
-#include "SDL_Setup.h"
-#include "Sprite.h"
-#include "Actor.h"
-#include "Game.h"
+#include "SDL_Setup.hpp"
+#include "Sprite.hpp"
+#include "Actor.hpp"
+#include "Game.hpp"
 
 namespace Game
 {
@@ -20,7 +20,7 @@ namespace Game
             virtual ~MainGame();
 
         public:
-            bool OnStartUp();
+            void OnStartUp();
             void Loop();
             void OnShutdown();
 

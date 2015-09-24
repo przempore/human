@@ -2,9 +2,9 @@
 //
 
 #include <SDL_image.h>
-#include "MainGame.h"
-#include "Defines.h"
-#include "Input.h"
+#include "MainGame.hpp"
+#include "Defines.hpp"
+#include "Input.hpp"
 
 namespace Game
 {
@@ -14,23 +14,14 @@ namespace Game
 
         MainGame::MainGame()
         {
-            sdlSetup.reset( new Components::Core::SDL_Setup());
-
-            grass.reset( new Components::Graphics::Sprite( "image/grass.jpg", sdlSetup->GetRendere(), 0, 0,
-                                                           windowWidth,
-                                                           windowHeight ));
-            bob.reset( new Actor( "image/tom.png", sdlSetup->GetRendere(), 0, 0, 100, 120 ));
-
             application = CreateApplication();
         }
 
         MainGame::~MainGame()
         { }
 
-        bool MainGame::OnStartUp()
+        void MainGame::OnStartUp()
         {
-            application->OnStartup();
-            return false;
         }
 
         void MainGame::Loop()
@@ -54,8 +45,8 @@ namespace Game
 
                 time2 = SDL_GetTicks();
 
-                application->OnUpdate( ( time2 - time1 ) / 1000.f );
-                application->OnDraw( sdlSetup->GetRendere() );
+                application->OnUpdate(( time2 - time1 ) / 1000.f );
+                application->OnDraw( sdlSetup->GetRendere());
 
                 SDL_RenderPresent( sdlSetup->GetRendere());
 

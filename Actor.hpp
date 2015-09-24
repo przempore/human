@@ -5,7 +5,7 @@
 #ifndef SDLTEST_ACTOR_H
 #define SDLTEST_ACTOR_H
 
-#include "Sprite.h"
+#include "Sprite.hpp"
 
 namespace Game
 {

@@ -2,7 +2,7 @@
 // Created by przemo on 15.07.15.
 //
 
-#include "Sprite.h"
+#include "Sprite.hpp"
 
 namespace Components
 {

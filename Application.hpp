@@ -8,13 +8,14 @@
 
 #include <SDL_render.h>
 #include <SDL_events.h>
-#include "InputType.h"
+#include "InputType.hpp"
+#include "Singleton.hpp"
 
 namespace Game
 {
     namespace Core
     {
-        class Application
+        class Application : public Singleton < Application >
         {
         public:
             Application();

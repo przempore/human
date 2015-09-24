@@ -2,7 +2,7 @@
 // Created by przemo on 20.07.15.
 //
 
-#include "Actor.h"
+#include "Actor.hpp"
 
 namespace Game
 {
