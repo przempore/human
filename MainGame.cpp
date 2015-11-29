@@ -30,7 +30,7 @@ namespace Game
         bool MainGame::OnStartUp()
         {
             application->OnStartup();
-            return false;
+            return true;
         }
 
         void MainGame::Loop()
@@ -54,8 +54,8 @@ namespace Game
 
                 time2 = SDL_GetTicks();
 
-                application->OnUpdate( ( time2 - time1 ) / 1000.f );
-                application->OnDraw( sdlSetup->GetRendere() );
+                application->OnUpdate(( time2 - time1 ) / 1000.f );
+                application->OnDraw( sdlSetup->GetRendere());
 
                 SDL_RenderPresent( sdlSetup->GetRendere());
 
@@ -83,12 +83,13 @@ namespace Game
 
                     case SDL_KEYDOWN:
                     {
-                        KeyboardInput input;
-
-                        input.m_state = KeyState::Down;
-                        input.m_code = event->key.keysym.sym;
-
-                        application->OnInput( InputType::Keyboard, &input );
+                        // the same action on keydown and keyup
+//                        KeyboardInput input;
+//
+//                        input.m_state = KeyState::Down;
+//                        input.m_code = event->key.keysym.sym;
+//
+//                        application->OnInput( InputType::Keyboard, &input );
                     }
                         break;
 

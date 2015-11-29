@@ -8,7 +8,10 @@ http://www.squarebitstudios.tk
 int main( int argc, char *args[] )
 {
     std::unique_ptr<Game::Core::MainGame> game( new Game::Core::MainGame());
-    game->OnStartUp();
+    if ( !game->OnStartUp())
+    {
+        std::cerr << "Game haven't started up" << std::endl;
+    }
     game->Loop();
     game->OnShutdown();
 
