@@ -15,7 +15,7 @@ namespace Game
 {
     namespace Core
     {
-        class Application : public Singleton < Application >
+        class Application //: public Gem::Singleton < Game::Core::Application >
         {
         public:
             Application();

@@ -12,10 +12,10 @@ namespace Game
     {
         Game::Game()
         {
-            grass.reset( new Components::Graphics::Sprite( "image/grass.jpg", sdlSetup->GetRendere(), 0, 0,
-                                                           windowWidth,
-                                                           windowHeight ));
-            bob.reset( new Actor( "image/tom.png", sdlSetup->GetRendere(), 0, 0, 100, 120 ));
+//            grass.reset( new Components::Graphics::Sprite( "image/grass.jpg", sdlSetup->GetRendere(), 0, 0,
+//                                                           windowWidth,
+//                                                           windowHeight ));
+//            bob.reset( new Actor( "image/tom.png", sdlSetup->GetRendere(), 0, 0, 100, 120 ));
 
         }
 
