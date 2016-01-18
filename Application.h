@@ -8,7 +8,8 @@
 
 #include <SDL_render.h>
 #include <SDL_events.h>
-#include "InputType.h"
+#include "Input.h"
+#include "Event.h"
 
 namespace Game
 {
@@ -17,18 +18,12 @@ namespace Game
         class Application
         {
         public:
-            Application();
-            virtual ~Application();
-
-        public:
             virtual void OnStartup() = 0;
             virtual void OnShutdown() = 0;
             virtual void OnUpdate( float dt ) = 0;
             virtual void OnDraw( SDL_Renderer *renderer ) = 0;
-            virtual void OnEvent( SDL_Event type,
-                                  void *event ) = 0;
-            virtual void OnInput( InputType type,
-                                  void *input ) = 0;
+            virtual void OnEvent( Event event ) = 0;
+            virtual void OnInput( Input input ) = 0;
 
         public:
             void Quit();

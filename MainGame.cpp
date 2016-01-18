@@ -83,13 +83,12 @@ namespace Game
 
                     case SDL_KEYDOWN:
                     {
-                        // the same action on keydown and keyup
-//                        KeyboardInput input;
-//
-//                        input.m_state = KeyState::Down;
-//                        input.m_code = event->key.keysym.sym;
-//
-//                        application->OnInput( InputType::Keyboard, &input );
+                        KeyboardInput input;
+
+                        input.m_state = KeyState::Down;
+                        input.m_code = event->key.keysym.sym;
+
+                        application->OnInput( Input( input ) );
                     }
                         break;
 
@@ -100,7 +99,7 @@ namespace Game
                         input.m_state = KeyState::Up;
                         input.m_code = event->key.keysym.sym;
 
-                        application->OnInput( InputType::Keyboard, &input );
+                        application->OnInput( Input( input ) );
                     }
                         break;
 

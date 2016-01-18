@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include "Game.h"
+#include "DebugInfo.h"
+#include "Input.h"
 
 namespace Game
 {
@@ -25,13 +27,14 @@ namespace Game
         {
         }
 
-        void Game::OnEvent( SDL_Event type, void *event )
+        void Game::OnEvent( Event event )
         {
 
         }
 
-        void Game::OnInput( InputType type, void *input )
+        void Game::OnInput( Input input )
         {
+
         }
 
         ApplicationPtr CreateApplication()

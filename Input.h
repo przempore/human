@@ -5,6 +5,8 @@
 #ifndef SDLTEST_INPUT_H
 #define SDLTEST_INPUT_H
 
+#include <boost/variant.hpp>
+
 namespace Game
 {
     namespace Core
@@ -42,9 +44,7 @@ namespace Game
             TouchPoint m_point;
         };
 
-        inline KeyboardInput *AsKeyboardInput( void *input );
-
-        inline TouchInput *AsTouchInput( void *input );
+        typedef boost::variant<KeyboardInput, TouchInput> Input;
     }
 }
 

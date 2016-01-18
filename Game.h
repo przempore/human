@@ -19,10 +19,8 @@ namespace Game
             virtual void OnShutdown() override;
             virtual void OnUpdate( float dt ) override;
             virtual void OnDraw( SDL_Renderer *renderer ) override;
-            virtual void OnEvent( SDL_Event type,
-                                  void *event ) override;
-            virtual void OnInput( InputType type,
-                                  void *input ) override;
+            virtual void OnEvent( Event event ) override;
+            virtual void OnInput( Input input ) override;
         };
         typedef std::unique_ptr< Application > ApplicationPtr;
     }

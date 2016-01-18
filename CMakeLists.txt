@@ -15,7 +15,9 @@ add_executable(human ${SOURCE_FILES} MainGame.cpp
                                        Defines.h
                                        Application.cpp
                                        Application.h
-                                       InputType.h Game.cpp Game.h Input.h)
+                                       Game.cpp
+                                       Game.h
+                                       Input.h Event.h)
 
 #configure_file(${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 

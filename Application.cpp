@@ -8,12 +8,6 @@ namespace Game
 {
     namespace Core
     {
-        Game::Core::Application::Application()
-        {}
-
-        Game::Core::Application::~Application()
-        {}
-
         void Game::Core::Application::Quit()
         {
             SDL_Event event;
