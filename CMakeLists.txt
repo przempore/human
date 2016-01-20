@@ -1,25 +1,29 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.3)
 project(human)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.cpp)
-add_executable(human ${SOURCE_FILES} MainGame.cpp
-                                       MainGame.h
-                                       Sprite.cpp
-                                       Sprite.h
-                                       Actor.cpp
-                                       Actor.h
-                                       SDL_Setup.cpp
-                                       SDL_Setup.h
-                                       Defines.h
-                                       Application.cpp
-                                       Application.h
-                                       Game.cpp
-                                       Game.h
-                                       Input.h Event.h)
+set(SOURCE_FILES
+    Actor.cpp
+    Actor.h
+    Application.cpp
+    Application.h
+    Application.inl
+    DebugInfo.h
+    Defines.h
+    Event.h
+    Game.cpp
+    Game.h
+    Input.h
+    main.cpp
+    MainGame.cpp
+    MainGame.h
+    SDL_Setup.cpp
+    SDL_Setup.h
+    Sprite.cpp
+    Sprite.h)
 
-#configure_file(${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+add_executable(human ${SOURCE_FILES})
 
 INCLUDE(FindPkgConfig)
 
