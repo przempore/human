@@ -3,93 +3,108 @@ main.c - Testing SDL2
 http://www.squarebitstudios.tk
 */
 #include <memory>
-#include "MainGame.h"
+#include <SDL_events.h>
+#include "SDL_Setup.h"
+#include "Input.h"
+#include "Sprite.h"
+#include "Defines.h"
+#include "Game.h"
+#include "Actor.h"
 
-bool CheckIsEscape( SDL_Event *event )
+namespace Game
 {
-    return event->type == SDL_KEYDOWN
-           && event->key.keysym.sym == SDLK_ESCAPE;
-}
-
-void CheckSDLEvent( SDL_Event *event )
-{
-    while ( SDL_PollEvent( sdlSetup->GetEvent()) != 0 )
+    namespace Core
     {
-        switch ( event->type )
+        bool CheckIsEscape( SDL_Event *event )
         {
-            case SDL_QUIT:
-            {
-                running = false;
-            }
-                break;
+            return event->type == SDL_KEYDOWN
+                   && event->key.keysym.sym == SDLK_ESCAPE;
+        }
 
-            case SDL_KEYDOWN:
-            {
-                KeyboardInput input;
+        extern ApplicationPtr CreateApplication();
 
-                input.m_state = KeyState::Down;
-                input.m_code = event->key.keysym.sym;
-
-                application->OnInput( Input( input ) );
-            }
-                break;
-
-            case SDL_KEYUP:
-            {
-                KeyboardInput input;
-
-                input.m_state = KeyState::Up;
-                input.m_code = event->key.keysym.sym;
-
-                application->OnInput( Input( input ) );
-            }
-                break;
-
-            default:
-            { }
-                break;
-        } // switch
     }
 }
-
 int main( int argc, char *args[] )
 {
+    Game::Core::ApplicationPtr application{
+            Game::Core::CreateApplication()
+    };
+    Components::Core::SDL_Setup sdlSetup;
+    bool running {
+            true
+    };
 
-	ApplicationPtr application = CreateApplication();
-	Components::Core::SDL_Setup sdlSetup;
-
-	bool running = true;
-
-	Components::Graphics::Sprite grass( "image/grass.jpg", sdlSetup->GetRendere(), 0, 0,
+	Components::Graphics::Sprite grass( "image/grass.jpg", sdlSetup.GetRendere(), 0, 0,
                                                            windowWidth,
                                                            windowHeight );
-	Actor bob( "image/tom.png", sdlSetup->GetRendere(), 0, 0, 100, 120 );
+    Game::Core::Actor bob( "image/tom.png", sdlSetup.GetRendere(), 0, 0, 100, 120 );
 
     application->OnStartup();
 
-    int time1 = SDL_GetTicks();
-    int time2 = 0;
+    Uint32 time1 {
+            SDL_GetTicks()
+    };
+    Uint32 time2 {
+           0
+    };
     while ( running )
     {
-        running = !CheckIsEscape( sdlSetup->GetEvent());
+        running = !Game::Core::CheckIsEscape( sdlSetup.GetEvent() );
 
-        CheckSDLEvent( sdlSetup->GetEvent());
+        while ( SDL_PollEvent( sdlSetup.GetEvent() ) != 0 )
+        {
+            switch ( sdlSetup.GetEvent()->type )
+            {
+                case SDL_QUIT:
+                {
+                    running = false;
+                }
+                    break;
 
-        SDL_RenderClear( sdlSetup->GetRendere());
+                case SDL_KEYDOWN:
+                {
+                    Game::Core::KeyboardInput input;
 
-        grass->RenderCopy();
-        bob->RenderCopy();
+                    input.m_state = Game::Core::KeyState::Down;
+                    input.m_code = sdlSetup.GetEvent()->key.keysym.sym;
 
-        bob->Move( sdlSetup->GetEvent());
+                    application->OnInput( Game::Core::Input ( input ) );
+                }
+                    break;
 
-        bob->PlayAnimation( 0, 3, 2, 300 );
+                case SDL_KEYUP:
+                {
+                    Game::Core::KeyboardInput input;
+
+                    input.m_state = Game::Core::KeyState::Up;
+                    input.m_code = sdlSetup.GetEvent()->key.keysym.sym;
+
+                    application->OnInput( Game::Core::Input( input ) );
+                }
+                    break;
+
+                default:
+                { }
+                    break;
+            } // switch
+        }
+
+        SDL_RenderClear( sdlSetup.GetRendere());
+
+        grass.RenderCopy();
+        bob.RenderCopy();
+
+        bob.Move( sdlSetup.GetEvent());
+
+        bob.PlayAnimation( 0, 3, 2, 300 );
 
         time2 = SDL_GetTicks();
 
         application->OnUpdate(( time2 - time1 ) / 1000.f );
-        application->OnDraw( sdlSetup->GetRendere());
+        application->OnDraw( sdlSetup.GetRendere());
 
-        SDL_RenderPresent( sdlSetup->GetRendere());
+        SDL_RenderPresent( sdlSetup.GetRendere());
 
         time1 = time2;
     }

@@ -4,8 +4,6 @@
 
 #include <iostream>
 #include "Game.h"
-#include "DebugInfo.h"
-#include "Input.h"
 
 namespace Game
 {
