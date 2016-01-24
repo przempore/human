@@ -21,24 +21,24 @@ namespace Game
         {
         }
 
-        void Game::OnDraw(SDL_Renderer *renderer)
+        void Game::OnDraw(Gem::Graphics& graphics)
         {
         }
 
-        void Game::OnEvent(Event event)
+        void Game::OnEvent(Gem::Event event)
         {
 
         }
 
-        void Game::OnInput(Input input)
+        void Game::OnInput(Gem::Input input)
         {
             try
             {
-                KeyboardInput kinput = boost::get<KeyboardInput>(input);
+                Gem::KeyboardInput kinput = boost::get<Gem::KeyboardInput>(input);
 
-                std::cerr << "OnInput: " << (kinput.m_state == KeyState::Down ? "down" : "up");
+                std::cerr << "OnInput: " << (kinput.m_state == Gem::KeyState::Down ? "down" : "up");
                 std::cerr << ", code: ";
-                if (kinput.m_state == KeyState::Down)
+                if (kinput.m_state == Gem::KeyState::Down)
                 {
                     std::cerr << kinput.m_code << std::endl;
                 }

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="gtest">
+      <UniqueIdentifier>{832d83b7-f67a-456d-a97a-7a16a057256f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gmock">
+      <UniqueIdentifier>{6ba26a08-692f-47ce-8485-3d76d51a3088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gem">
+      <UniqueIdentifier>{c42efdc8-5f2f-45b2-928d-9d2bfff18dd2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\gmock_main.cc" />
+    <ClCompile Include="..\..\src\gmock-gtest-all.cc" />
+    <ClCompile Include="..\..\src\gem\PointTest.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\RectangeTest.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\ErrorTest.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Vector2Test.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\gtest\gtest.h">
+      <Filter>gtest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gmock\gmock.h">
+      <Filter>gmock</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

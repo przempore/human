@@ -104,7 +104,7 @@ int main(int argc, char *args[])
         time2 = SDL_GetTicks();
 
         application->OnUpdate((time2 - time1) / 1000.f);
-        application->OnDraw(sdlSetup.GetRendere());
+//        application->OnDraw(sdlSetup.GetRendere());
 
         SDL_RenderPresent(sdlSetup.GetRendere());
 

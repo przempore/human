@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="gem">
+      <UniqueIdentifier>{c5414eef-cc88-42fd-8b86-ed512b4e8942}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gem\detail">
+      <UniqueIdentifier>{fc462cf8-295a-41cb-9f75-3fa84df6d156}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pugixml">
+      <UniqueIdentifier>{d8673172-1301-48bb-9470-e8a2ac6aed4b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\gem\Application.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\System.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Point.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Rectangle.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Texture.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Logger.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Vector2.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Matrix.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\detail\SdlGraphics.cpp">
+      <Filter>gem\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\detail\SdlMain.cpp">
+      <Filter>gem\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\detail\SdlTexture.cpp">
+      <Filter>gem\detail</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Color.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Content.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\Asset.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\pugixml\pugixml.cpp">
+      <Filter>pugixml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gem\TexturePart.cpp">
+      <Filter>gem</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\gem\Application.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Math.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Singleton.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Assert.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\System.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Event.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Input.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Point.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Rectangle.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Texture.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Error.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Logger.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Graphics.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\BlendMode.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Vector2.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Matrix.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\DrawEffects.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\detail\SdlGraphics.hpp">
+      <Filter>gem\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\detail\SdlTexture.hpp">
+      <Filter>gem\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Color.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Content.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Asset.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\pugixml\pugiconfig.hpp">
+      <Filter>pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\pugixml\pugixml.hpp">
+      <Filter>pugixml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\TexturePart.hpp">
+      <Filter>gem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gem\Stack.h">
+      <Filter>gem</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\gem\Math.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\Singleton.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\Point.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\Rectangle.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\Error.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\Logger.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\Vector2.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\Matrix.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\detail\SdlTexture.inl">
+      <Filter>gem\detail</Filter>
+    </None>
+    <None Include="..\..\src\gem\Color.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\Content.inl">
+      <Filter>gem</Filter>
+    </None>
+    <None Include="..\..\src\gem\TexturePart.inl">
+      <Filter>gem</Filter>
+    </None>
+  </ItemGroup>
+</Project>

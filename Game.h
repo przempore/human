@@ -7,22 +7,24 @@
 
 
 #include <memory>
-#include "Application.h"
+#include <SDL_render.h>
+#include <gem/Application.hpp>
+//#include "Application.h"
 
 namespace Game
 {
     namespace Core
     {
-        class Game : public Application
+        class Game : public Gem::Application
         {
             virtual void OnStartup() override;
             virtual void OnShutdown() override;
             virtual void OnUpdate( float dt ) override;
-            virtual void OnDraw( SDL_Renderer *renderer ) override;
-            virtual void OnEvent( Event event ) override;
-            virtual void OnInput( Input input ) override;
+            virtual void OnDraw( Gem::Graphics& graphics ) override;
+            virtual void OnEvent( Gem::Event event ) override;
+            virtual void OnInput( Gem::Input input ) override;
         };
-        typedef std::unique_ptr< Application > ApplicationPtr;
+        typedef std::unique_ptr< Gem::Application > ApplicationPtr;
     }
 }
 
