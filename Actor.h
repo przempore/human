@@ -14,20 +14,20 @@ namespace Game
         class Actor : public Components::Graphics::Sprite
         {
         public:
-            Actor( const char *source,
-                   SDL_Renderer *renderer,
-                   int x, int y, int w, int h );
+            Actor(const char *source,
+                  SDL_Renderer *renderer,
+                  int x, int y, int w, int h);
 
             virtual ~Actor();
 
         public:
-            void Move( int x, int y );
+            void Move(int x, int y);
 
-            void Move( SDL_Event *event );
+            void Move(SDL_Event *event);
 
             void RenderCopy() override;
 
-            void PlayAnimation( int beginFrame, int endFrame, int row, float deelay );
+            void PlayAnimation(int beginFrame, int endFrame, int row, float deelay);
 
         private:
             int currentFrame = 0;

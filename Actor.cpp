@@ -8,13 +8,13 @@ namespace Game
 {
     namespace Core
     {
-        Actor::Actor( const char *source,
-                      SDL_Renderer *renderer,
-                      int x, int y, int w, int h ) : Sprite( source,
-                                                             renderer,
-                                                             x, y, w, h )
+        Actor::Actor(const char *source,
+                     SDL_Renderer *renderer,
+                     int x, int y, int w, int h) : Sprite(source,
+                                                          renderer,
+                                                          x, y, w, h)
         {
-            SDL_QueryTexture( texture, NULL, NULL, &imageWidth, &imageHeigh );
+            SDL_QueryTexture(texture, NULL, NULL, &imageWidth, &imageHeigh);
             Actor::crop.x = 0;
             Actor::crop.y = 0;
             Actor::crop.w = w / 4;
@@ -24,19 +24,19 @@ namespace Game
         Actor::~Actor()
         { }
 
-        void Actor::Move( int x, int y )
+        void Actor::Move(int x, int y)
         {
             Actor::rect.x = x;
             Actor::rect.y = y;
         }
 
-        void Actor::Move( SDL_Event *event )
+        void Actor::Move(SDL_Event *event)
         {
-            switch ( event->type )
+            switch (event->type)
             {
                 case SDL_KEYDOWN:
 
-                    switch ( event->key.keysym.sym )
+                    switch (event->key.keysym.sym)
                     {
                         case SDLK_a:
                             this->rect.x -= speed;
@@ -62,17 +62,17 @@ namespace Game
 
         void Actor::RenderCopy()
         {
-            SDL_RenderCopy( renderer, texture, &crop, &rect );
+            SDL_RenderCopy(renderer, texture, &crop, &rect);
         }
 
-        void Actor::PlayAnimation( int beginFrame, int endFrame, int row, float deelay )
+        void Actor::PlayAnimation(int beginFrame, int endFrame, int row, float deelay)
         {
-            if (( animDelay + deelay ) > SDL_GetTicks())
+            if ((animDelay + deelay) > SDL_GetTicks())
             {
                 return;
             }
 
-            if ( endFrame <= currentFrame )
+            if (endFrame <= currentFrame)
             {
                 currentFrame = beginFrame;
             }
@@ -81,8 +81,8 @@ namespace Game
                 ++currentFrame;
             }
 
-            crop.x = currentFrame * ( imageWidth / 4 );
-            crop.y = row * ( imageHeigh / 4 );
+            crop.x = currentFrame * (imageWidth / 4);
+            crop.y = row * (imageHeigh / 4);
             crop.w = imageWidth / 4;
             crop.h = imageHeigh / 4;
 
